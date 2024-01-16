@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SSO Msal",
+  "name": "POC AquaO SSO from Msal",
   "icons": [
     {
       "src": "favicon.ico",
