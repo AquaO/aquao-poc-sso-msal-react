@@ -6,7 +6,7 @@ function App() {
 
   const [isMsalLoading, setMsalLoading] = useState(false);  
   const [isAquaoLoading, setAquaoLoading] = useState(false);
-  const [maslData, setMaslData] = useState({
+  const [msalData, setMsalData] = useState({
     tenantId : null,
     clientId : null,
     token : null
@@ -39,11 +39,11 @@ function App() {
     };
 
     let response = await msalInstance.loginPopup(msalLoginRequest);
-    maslData.tenantId = response.account.idTokenClaims.tid;
-    maslData.clientId = response.account.idTokenClaims.aud;
-    maslData.token = response.idToken;
+    msalData.tenantId = response.account.idTokenClaims.tid;
+    msalData.clientId = response.account.idTokenClaims.aud;
+    msalData.token = response.idToken;
 
-    setMaslData(maslData);
+    setMsalData(msalData);
     setMsalLoading(false);
 
     setAquaoLoading(true);
@@ -58,7 +58,7 @@ function App() {
         cache: "no-cache", 
         cors: "no-cors",
         credentials: 'include',
-        body: JSON.stringify(maslData)
+        body: JSON.stringify(msalData)
       }
     );
 
@@ -75,7 +75,7 @@ function App() {
 
       <MsalAuthenticationViewer 
         loading={isMsalLoading} 
-        maslData ={maslData} 
+        maslData ={msalData} 
       />
 
       <AquaoAuthenticationViewer 
