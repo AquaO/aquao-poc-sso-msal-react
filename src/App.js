@@ -75,7 +75,7 @@ function App() {
 
       <MsalAuthenticationViewer 
         loading={isMsalLoading} 
-        maslData ={msalData} 
+        msalData ={msalData} 
       />
 
       <AquaoAuthenticationViewer 
@@ -103,7 +103,7 @@ function AuthenticationViewer(props){
 /**
  * 
  * @param {boolean} loading 
- * @param {object} maslData
+ * @param {object} msalData
  * @returns 
  */
 function MsalAuthenticationViewer(props){
@@ -118,7 +118,7 @@ function MsalAuthenticationViewer(props){
       </AuthenticationViewer>
     );
 
-  } else if(props.maslData.tenantId == null){
+  } else if(props.msalData.tenantId == null){
 
     return (
       <AuthenticationViewer value={title}>
@@ -134,17 +134,17 @@ function MsalAuthenticationViewer(props){
           <tbody>
             <tr>
               <td className="left">MsalAuthenticationRequest</td>
-              <td colSpan="3"><textarea value={JSON.stringify(props.maslData, null, "\t")} readOnly={true} /></td>
+              <td colSpan="3"><textarea value={JSON.stringify(props.msalData, null, "\t")} readOnly={true} /></td>
             </tr>
             <tr>
               <td className="left">TenantId</td>
-              <td>{props.maslData.tenantId}</td>
+              <td>{props.msalData.tenantId}</td>
               <td className="left">ClientId</td>
-              <td>{props.maslData.clientId}</td>
+              <td>{props.msalData.clientId}</td>
             </tr>
             <tr>
               <td className="left">Token</td>
-              <td colSpan="3"><textarea value={props.maslData.token} readOnly={true} /></td>
+              <td colSpan="3"><textarea value={props.msalData.token} readOnly={true} /></td>
             </tr>
           </tbody>
         </table>
